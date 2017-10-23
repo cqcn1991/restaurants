@@ -1,0 +1,31 @@
+{% macro pretty_rating(rating_float) -%}
+    {{ "{:.1f}".format(rating_float) }}
+{%- endmacro %}
+
+<div class='custom-thumbnail clearfix'>
+    <a href='{{restaurant['url']}}' target='_blank'>
+        <img class="restaurant-poster" src={{restaurant['image_url']}}>
+    </a>
+    <div class="restaurant-info">
+        <div class="caption">
+            <h3 class="title">{{restaurant['title']}}</h3>
+            <div class="detail-info">
+                <span class="rating">{{ pretty_rating(restaurant['rating']) }} ({{ restaurant['ratings_num'] }}条评价)</span>
+                <br>
+                <div class="right">
+                    <span>类型: {{ restaurant['type'] }}</span>
+                    <br>
+                    <span>地区: {{ restaurant['location'] }}</span>
+                </div>
+                <span>价格: {{ restaurant['price'] }}</span>
+                <br>
+                <span>口味: {{ restaurant['taste'] }}</span>
+                <br>
+                <span>环境: {{ restaurant['environment'] }}</span>
+                <br>
+                <span>服务: {{ restaurant['service'] }}</span>
+
+            </div>
+        </div>
+   </div>
+</div>
